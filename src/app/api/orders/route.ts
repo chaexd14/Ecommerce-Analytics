@@ -6,22 +6,19 @@ export async function GET(request: NextRequest) {
   try {
     await connectDB();
 
-    // Get pagination parameters from query
     const searchParams = request.nextUrl.searchParams;
     const page = parseInt(searchParams.get("page") || "1", 10);
     const limit = parseInt(searchParams.get("limit") || "10", 10);
     const sort = searchParams.get("sort") || "date";
     const order = searchParams.get("order") || "-1";
 
-    // Calculate skip for pagination
     const skip = (page - 1) * limit;
+    const sortOrder = parseInt(order) as 1 | -1;
 
-    // Get total count for pagination
     const total = await Order.countDocuments();
 
-    // Fetch orders with pagination
     const orders = await Order.find()
-      .sort({ [sort]: parseInt(order) })
+      .sort({ [sort]: sortOrder })
       .skip(skip)
       .limit(limit)
       .lean();
