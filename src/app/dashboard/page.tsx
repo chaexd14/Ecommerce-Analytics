@@ -63,9 +63,9 @@ interface OrdersResponse {
 
 export default function Dashboard() {
   const [stats, setStats] = useState<Stats | null>(null);
-  const [salesByRegion, setSalesByRegion] = useState([]);
-  const [salesByCategory, setSalesByCategory] = useState([]);
-  const [salesByDate, setSalesByDate] = useState([]);
+  const [salesByRegion, setSalesByRegion] = useState<Array<{ _id: string; sales: number; profit: number; orders: number }>>([]);
+  const [salesByCategory, setSalesByCategory] = useState<Array<{ _id: string; sales: number; profit: number; orders: number }>>([]);
+  const [salesByDate, setSalesByDate] = useState<Array<{ _id: string; sales: number; profit: number; quantity: number }>>([]);
   const [orders, setOrders] = useState<Order[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
