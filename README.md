@@ -176,7 +176,7 @@ http://localhost:3000
 * King Arthur Amato
 * Md. Rehean Patwary
 * Elijah Lanuza
-* Joshua Delovin
+* Joshua Delovin0
 * Sean Soriano
 
 ---
